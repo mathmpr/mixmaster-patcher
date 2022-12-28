@@ -61,7 +61,7 @@ class MainController {
     async #getIntegrityMap() {
         let getIntegrity = () => {
             return new Promise((resolve, reject) => {
-                request(this.config.baseUrl + this.config.integrityEndpoint, {
+                request(this.config.baseUrl + this.config.integrityEndpoint + '&name=' + this.config.gameName, {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Accept': 'application/json'
