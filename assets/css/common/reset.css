@@ -1,0 +1,13 @@
+@import url(../jost.css);
+
+body, html {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Jost', sans-serif;
+    box-sizing: border-box;
+    user-select: none;
+}

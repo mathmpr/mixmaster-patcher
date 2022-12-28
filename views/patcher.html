@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
+    <link href="../assets/css/common/reset.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/patcher.css" rel="stylesheet" type="text/css">
+    <title>MixMaster Pro AutoPatch</title>
+</head>
+<body>
+<div class="container">
+    <div class="controls">
+        <div class="x"></div>
+        <div class="drag"></div>
+    </div>
+    <div class="form">
+        <header>
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="logo">
+            </div>
+            <div class="status">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <span>Verificando o client</span>
+            </div>
+        </header>
+        <div class="inputs">
+            <div class="group control">
+                <input name="username" id="username" placeholder=" " type="text"/><label for="username">Username</label>
+            </div>
+            <div class="group control">
+                <input name="password" id="password" placeholder=" " type="password"/><label for="password">Password</label>
+            </div>
+            <div class="group radio control">
+                <p>Fullscreen</p>
+                <input name="fullscreen" id="fullscreen" type="radio"><label for="fullscreen"></label>
+            </div>
+            <div class="group btn">
+                <button class="control btn">Entrar</button>
+            </div>
+            <p class="error no-display">Usuário ou senha incorretos</p>
+        </div>
+    </div>
+    <div class="bg"></div>
+</div>
+
+</body>
+</html>

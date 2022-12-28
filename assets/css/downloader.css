@@ -1,0 +1,62 @@
+body {
+    overflow: hidden;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.bg {
+    background-image: url(../images/downloader-background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: calc(100% + 20px);
+    left: -15px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+#download {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    padding: 20px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35057773109243695) 0%, rgba(0, 0, 0, 0.7539390756302521) 100%);
+}
+
+#download .progress {
+    height: 15px;
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 80px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 80px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 80px -15px rgba(0, 0, 0, 0.75);
+    border: 1px solid #dddddd;
+}
+
+#download .progress div {
+    height: 13px;
+    width: 0;
+    transition: width 0.2s linear;
+    background-color: #00ddc7;
+    border-radius: 2px;
+}
+
+#download .status {
+    color: #fff;
+    padding: 0;
+    margin: 0 0 10px;
+}
+
+#download .status:last-child {
+    margin: 0;
+}
+
+#download .status span.error {
+    color: #ff593a;
+}

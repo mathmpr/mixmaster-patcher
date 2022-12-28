@@ -1,0 +1,326 @@
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    border: 2px solid #23ce94;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #23ce94 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    overflow: hidden;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    gap: 0;
+    height: 100%;
+}
+
+.container .bg:before, .container .bg:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.container .bg:before {
+    z-index: 1;
+    background-image: url(../images/patcher-background.jpg);
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container .bg:after {
+}
+
+.container .bg {
+    flex: 0 0 calc(100% - 200px);
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.form {
+    flex: 0 0 340px;
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form header {
+    display: flex;
+    flex: 0 0 100%;
+    height: 46px;
+}
+
+.form header .logo img {
+    width: 50px;
+}
+
+.form header .status {
+    line-height: 46px;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 12px;
+}
+
+.form .inputs {
+    flex: 0 0 100%;
+    height: calc(100% - 46px);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    vertical-align: middle;
+    flex-direction: row;
+}
+
+.form .inputs div {
+    height: auto;
+    display: inline-block;
+    width: 100%;
+}
+
+.form .group {
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    padding: 10px 5px 10px 15px;
+    position: relative;
+}
+
+.form .group label {
+    position: absolute;
+    left: 9px;
+    display: inline;
+    background: #fff;
+    transition: 0.2s top ease;
+    top: 7px;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.form .group input {
+    margin: 0;
+    border: 0;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.form .group input:focus + label {
+    top: -13px !important;
+}
+
+input:not(:placeholder-shown) + label {
+    top: -13px !important;
+}
+
+.group.btn {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.group + .group {
+    margin-top: 15px;
+}
+
+.form button.btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    background-color: #0087ff;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in;
+}
+
+.form button.btn:hover {
+    opacity: .8;
+}
+
+.form .disabled.btn:hover {
+    opacity: .6;
+}
+
+.form .disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.status.ready .lds-ring {
+    display: none;
+}
+
+.container {
+    position: relative;
+}
+
+.controls {
+    position: absolute;
+    width: 100%;
+    padding: 15px;
+    z-index: 10;
+}
+
+.controls .x {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    display: block;
+    right: 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.controls .drag {
+    width: calc(100% - 35px);
+    height: 100%;
+    position: absolute;
+    z-index: 5;
+    -webkit-app-region: drag;
+    left: 0;
+    top: 0;
+}
+
+.controls .x:after, .controls .x:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 2px;
+    left: 9px;
+    top: 0;
+    background: #fff;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
+.controls .x:after {
+    transform: rotate(45deg);
+}
+
+.controls .x:before {
+    transform: rotate(-45deg);
+}
+
+.controls .x:hover {
+    opacity: .7;
+}
+
+.form .inputs .error {
+    text-align: center;
+    margin: 15px 0;
+    color: #ff3f19;
+    width: 100%;
+    font-weight: 500;
+}
+
+.form .inputs .error.no-display {
+    display: none;
+}
+
+.group.radio {
+    border: 0;
+    text-align: left;
+    padding: 0;
+}
+
+.group.radio input {
+    width: auto;
+    display: none;
+}
+
+.group.radio label {
+    border: 1px solid #dedede;
+    width: 50px;
+    height: 25px;
+    display: inline-block;
+    left: initial;
+    top: 1px !important;
+    border-radius: 50px;
+    margin-left: 8px;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    transition: background-color 0.2s ease-in;
+}
+
+.group.radio p {
+    display: inline-block;
+    margin: 0;
+    line-height: 25px;
+    position: relative;
+    top: -7px;
+}
+
+.group.radio label:before {
+    width: 21px;
+    height: 21px;
+    border-radius: 50px;
+    content: ' ';
+    display: block;
+    left: 1px;
+    top: 1px;
+    background-color: #d2d2d2;
+    position: absolute;
+    transition: left 0.2s ease-in;
+}
+
+.group.radio input:checked + label:before {
+    left: 25px;
+    background-color: #fff;
+}
+
+.group.radio input:checked + label {
+    background-color: #0087ff;
+}
+
+.form .disabled label, .form .disabled input, .form .disabled.btn, .form .disabled button {
+    cursor: not-allowed;
+}

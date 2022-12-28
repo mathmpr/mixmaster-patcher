@@ -1,0 +1,25 @@
+{
+  "author": "mathmpr",
+  "name": "MixMasterPro",
+  "main": "main.js",
+  "version": "0.0.1",
+  "description": "MixMasterPro",
+  "win": {
+    "icon": "icon.ico"
+  },
+  "scripts": {
+    "start": "electron main.js",
+    "build": "electron-builder build"
+  },
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.9",
+    "decompress": "^4.2.1",
+    "fix-path": "^4.0.0",
+    "request": "^2.88.2",
+    "request-progress": "^3.0.0"
+  }
+}

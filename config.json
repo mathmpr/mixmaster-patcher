@@ -1,0 +1,8 @@
+{
+  "integrityEndpoint": "?a=ClientIntegrity",
+  "authEndpoint": "?a=Auth",
+  "gameName": "MixMasterPro",
+  "baseUrl": "https://mixmasterlife.com/",
+  "gameIp": "177.54.146.113",
+  "gamePort": "101"
+}
