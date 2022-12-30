@@ -284,18 +284,17 @@ class MainController {
             if (this.authData) {
                 let version = fs.readFileSync('./game/mixmaster.cfg').toString().replace('ver', '').trim();
                 let commands = [version, this.config.gameIp, this.config.gamePort, (this.authData.fullscreen ? '1' : '0'), this.authData.username, this.authData.password, "1", "AURORA_BR", "exit"];
-                let bat = normalizeRoot('game/open.bat');
-                fs.writeFileSync(bat, 'CD ' + normalizeRoot('game') + '\nstart MixMaster.exe ' + commands.join(' ').trim());
-
-                cp.execSync(bat, {
-                    detached: true,
-                });
-
-                fs.unlinkSync(bat);
 
                 setTimeout(() => {
                     this.app.quit();
-                }, 1500);
+                }, 3000);
+
+                cp.spawn(normalizeRoot('game/MixMaster.exe'), commands, {
+                    detached: true,
+                    shell: true,
+                    cwd: normalizeRoot('game')
+                });
+
             }
         });
 
