@@ -274,6 +274,10 @@ class MainController {
 
         this.#downloadLogic();
 
+        /**
+         * add patcher logic for main process
+         */
+
         await this.#patcherLogic();
 
         ipcMain.on('close-app', () => {
