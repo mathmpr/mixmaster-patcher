@@ -7,7 +7,7 @@ let fs = require('fs');
 let request = require('request');
 let progress = require('request-progress');
 const decompress = require("decompress");
-let md5 = require('md5');
+const crypto = require('crypto');
 let cp = require('child_process');
 
 
@@ -250,11 +250,16 @@ class MainController {
                 if (status.isDirectory()) {
                     founded = founded.concat(getFiles(path + file + '/'));
                 } else {
+
+                    let fileBuffer = fs.readFileSync(path + file);
+                    let hashSum = crypto.createHash('md5');
+                    hashSum.update(fileBuffer);
+                    let hash = hashSum.digest('hex');
+
                     founded.push({
                         basename: file,
                         filesize: status.size,
-                        modified: status.mtime,
-                        hash: md5(file + status.size + status.mtime),
+                        hash: hash
                     });
                 }
             });
