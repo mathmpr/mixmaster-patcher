@@ -7,6 +7,7 @@ let fs = require('fs');
 let request = require('request');
 let progress = require('request-progress');
 const decompress = require("decompress");
+let md5 = require('md5');
 let cp = require('child_process');
 
 
@@ -227,7 +228,7 @@ class MainController {
             for (let i in filesThatIHave) {
                 let _file = filesThatIHave[i];
                 if (file.basename === _file.basename) {
-                    if (file.filesize === _file.filesize) {
+                    if (file.hash === _file.hash) {
                         return true;
                     }
                 }
@@ -251,7 +252,9 @@ class MainController {
                 } else {
                     founded.push({
                         basename: file,
-                        filesize: status.size
+                        filesize: status.size,
+                        modified: status.mtime,
+                        hash: md5(file + status.size + status.mtime),
                     });
                 }
             });
